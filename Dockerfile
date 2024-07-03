@@ -7,9 +7,9 @@ RUN mkdir -p $APP_HOME
 
 COPY target/*.jar $APP_HOME/
 
-# Remove the .original file and rename the jar file to app.jar, assuming there is only one jar file in target
+# Remove the .original file and rename the remaining jar file to app.jar
 RUN rm -f $APP_HOME/*.jar.original && \
-    mv $APP_HOME/*.jar $APP_HOME/app.jar
+    mv $APP_HOME/*SNAPSHOT.jar $APP_HOME/app.jar
 
 WORKDIR $APP_HOME
 
